@@ -1,0 +1,13 @@
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - limix=3.0.4
+  - pandas=1.0.5
+  - xarray=0.14.1
+  - plotnine=0.7.0
+  - r-dplyr=0.7.0
+  - r-optparse=1.6.0
+  - r-peer=1.3

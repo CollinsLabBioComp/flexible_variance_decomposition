@@ -1,0 +1,26 @@
+{
+    # default settings for job on SLURM cluster
+    "__default__" :
+    {
+        "memory"    : 15, # all jobs default to 15 in Gb
+        "name"      : "snkmk.{rule}.{wildcards}",
+        "output"    : "logs/cluster/{rule}/snkmk.{wildcards}.o",
+        "error"     : "logs/cluster/{rule}/snkmk.{wildcards}.e"
+    },
+
+    # settings for specific rules in QTL pipeline
+    "sample_covariance__prep":
+    {
+        "memory"     : 80 # Give default 80 Gb - can be big files
+    },
+
+    "map_qtls__map":
+    {
+        "memory"     : 100 # Give a lot -- can cut back if need to
+    },
+
+    "map_trans_effects__map":
+    {
+        "memory"     : 100 # Give a lot -- can cut back if need to
+    }
+}

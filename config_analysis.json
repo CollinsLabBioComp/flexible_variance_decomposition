@@ -1,0 +1,40 @@
+{
+    # Moltraits
+    "MOLTRAITS_ID_COL": "phenotype",
+    "MOLTRAITS_SAMPLE_START": 7, # 0-indexed
+
+    # Covariates
+    "COVARIATES": ["sex", "age"],
+    "COVARIATES_REFERENCES": [
+      "sex::M"
+    ],
+    "COVARIATES_MEAN_IMPUTE": ["age"],
+
+    # Covariance matrices
+    "MATRICES": {
+      "genetic": "data/matrices/genetic_matrix.tsv.gz",
+      "phenotypic": "data/matrices/pheno_vectors.tsv.gz"
+    },
+    "MATRICES_TRANSFORM_DATAFRAMES": ["phenotypic"],
+
+    # PEER factor analysis:
+    # If `PEER_N_FACTORS` has NA, pipeline will skip PEER and include covariates
+    # directly in LIMIX model. For factors>=0, pipeline will adjust coviariates using PEER.
+    "PEER_N_FACTORS": ["NA", 0, 5],
+    "PEER_ITERATIONS": 1000,
+    "PEER_ACCOUNT_MEAN": "False",
+    "PEER_INVERSE_NORMALIZE": "True",
+
+    # For VarDecomp
+    # If 'True', use PEER residuals as covariates
+    # If 'False', use PEER factors as covariates
+    "PEER_USE_RESIDUALS": true,
+
+    # Variance Decomposition settings
+    "VARDEC_NORMALIZATION": ["NA", "rank_normal"], # Use NA to denote no normalization
+    "VARDEC_RESIDUAL_DISTRIBUTION" : ["normal", "bernoulli"],
+    "VARDEC_MATRICES": {
+      "Gen_Pheno": ["genetic", "phenotypic"],
+      "Gen": ["genetic"]
+    }
+}

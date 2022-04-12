@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - limix=3.0.4
+  - pandas=1.0.5
+  - snakemake=5.27.4
+  - xarray=0.14.1
+  - plotnine=0.7.0
